@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="F:/AppData/CLion/BSTree/cmake-build-debug"/>
+				<Option working_dir="F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="BSTree">
-				<Option output="F:/AppData/CLion/BSTree/cmake-build-debug/BSTree.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="F:/AppData/CLion/BSTree/cmake-build-debug"/>
+				<Option output="F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/BSTree.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -33,15 +33,15 @@
 					<Add directory="e:\app\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 BSTree"/>
-					<CompileFile command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 BSTree"/>
+					<CompileFile command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="BSTree/fast">
-				<Option output="F:/AppData/CLion/BSTree/cmake-build-debug/BSTree.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="F:/AppData/CLion/BSTree/cmake-build-debug"/>
+				<Option output="F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/BSTree.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -55,40 +55,40 @@
 					<Add directory="e:\app\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 BSTree/fast"/>
-					<CompileFile command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 BSTree/fast"/>
+					<CompileFile command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="F:/AppData/CLion/BSTree/cmake-build-debug"/>
+				<Option working_dir="F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="F:/AppData/CLion/BSTree/cmake-build-debug"/>
+				<Option working_dir="F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/AppData/CLion/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="E:/APP/MinGW/bin/mingw32-make.exe -f &quot;F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="F:/AppData/CLion/BSTree/BSTree.h">
+		<Unit filename="F:/Learning/Data_Structure/Data_Structure/github/BSTree/BSTree.h">
 			<Option target="BSTree"/>
 		</Unit>
-		<Unit filename="F:/AppData/CLion/BSTree/main.cpp">
+		<Unit filename="F:/Learning/Data_Structure/Data_Structure/github/BSTree/main.cpp">
 			<Option target="BSTree"/>
 		</Unit>
-		<Unit filename="F:/AppData/CLion/BSTree/CMakeLists.txt">
+		<Unit filename="F:/Learning/Data_Structure/Data_Structure/github/BSTree/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

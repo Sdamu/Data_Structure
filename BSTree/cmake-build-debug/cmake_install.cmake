@@ -1,4 +1,4 @@
-# Install script for directory: F:/AppData/CLion/BSTree
+# Install script for directory: F:/Learning/Data_Structure/Data_Structure/github/BSTree
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "F:/AppData/CLion/BSTree/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

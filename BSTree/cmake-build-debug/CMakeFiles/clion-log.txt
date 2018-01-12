@@ -1,65 +1,18 @@
-E:\APP\JetBrains\CLion\bin\cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" F:\Learning\数据结构相关\Data_Structure\github\BSTree
+E:\APP\JetBrains\CLion\bin\cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" F:\Learning\Data_Structure\Data_Structure\github\BSTree
 -- The C compiler identification is GNU 6.3.0
 -- The CXX compiler identification is GNU 6.3.0
 -- Check for working C compiler: E:/APP/MinGW/bin/gcc.exe
--- Check for working C compiler: E:/APP/MinGW/bin/gcc.exe -- broken
-CMake Error at E:/APP/JetBrains/CLion/bin/cmake/share/cmake-3.9/Modules/CMakeTestCCompiler.cmake:51 (message):
-  The C compiler "E:/APP/MinGW/bin/gcc.exe" is not able to compile a simple
-  test program.
-
-  It fails with the following output:
-
-   Change Dir: F:/Learning/鏁版嵁缁撴瀯鐩稿叧/Data_Structure/github/BSTree/cmake-build-debug/CMakeFiles/CMakeTmp
-
-  
-
-  Run Build Command:"E:/APP/MinGW/bin/mingw32-make.exe" "cmTC_2866a/fast"
-
-  E:/APP/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_2866a.dir\build.make
-  CMakeFiles/cmTC_2866a.dir/build
-
-  mingw32-make.exe[1]: Entering directory
-  'F:/Learning/鏁版嵁缁撴瀯鐩稿叧/Data_Structure/github/BSTree/cmake-build-debug/CMakeFiles/CMakeTmp'
-
-
-  Building C object CMakeFiles/cmTC_2866a.dir/testCCompiler.c.obj
-
-  E:\APP\MinGW\bin\gcc.exe -o CMakeFiles\cmTC_2866a.dir\testCCompiler.c.obj
-  -c
-  F:\Learning\閺佺増宓佺紒鎾寸�惄绋垮彠\Data_Structure\github\BSTree\cmake-build-debug\CMakeFiles\CMakeTmp\testCCompiler.c
-
-
-  gcc.exe: error:
-  F:\Learning\閺佺増宓佺紒鎾寸�惄绋垮彠\Data_Structure\github\BSTree\cmake-build-debug\CMakeFiles\CMakeTmp\testCCompiler.c:
-  No such file or directory
-
-  gcc.exe: fatal error: no input files
-
-  compilation terminated.
-
-  CMakeFiles\cmTC_2866a.dir\build.make:64: recipe for target
-  'CMakeFiles/cmTC_2866a.dir/testCCompiler.c.obj' failed
-
-  mingw32-make.exe[1]: *** [CMakeFiles/cmTC_2866a.dir/testCCompiler.c.obj]
-  Error 1
-
-  mingw32-make.exe[1]: Leaving directory
-  'F:/Learning/鏁版嵁缁撴瀯鐩稿叧/Data_Structure/github/BSTree/cmake-build-debug/CMakeFiles/CMakeTmp'
-
-
-  Makefile:125: recipe for target 'cmTC_2866a/fast' failed
-
-  mingw32-make.exe: *** [cmTC_2866a/fast] Error 2
-
-  
-
-  
-
-  CMake will not be able to correctly generate this project.
-Call Stack (most recent call first):
-  CMakeLists.txt:2 (project)
-
-
--- Configuring incomplete, errors occurred!
-See also "F:/Learning/鏁版嵁缁撴瀯鐩稿叧/Data_Structure/github/BSTree/cmake-build-debug/CMakeFiles/CMakeOutput.log".
-See also "F:/Learning/鏁版嵁缁撴瀯鐩稿叧/Data_Structure/github/BSTree/cmake-build-debug/CMakeFiles/CMakeError.log".
+-- Check for working C compiler: E:/APP/MinGW/bin/gcc.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: E:/APP/MinGW/bin/g++.exe
+-- Check for working CXX compiler: E:/APP/MinGW/bin/g++.exe -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug
