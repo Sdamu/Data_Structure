@@ -1,0 +1,3 @@
+F:/AppData/CLion/BSTree/cmake-build-debug/CMakeFiles/BSTree.dir
+F:/AppData/CLion/BSTree/cmake-build-debug/CMakeFiles/edit_cache.dir
+F:/AppData/CLion/BSTree/cmake-build-debug/CMakeFiles/rebuild_cache.dir
