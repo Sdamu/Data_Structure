@@ -233,7 +233,7 @@ BSTNode<T> *BSTree<T>::maximum(BSTNode<T> *tree) {
 }
 
 template <class T>
-BSTNode<T> *BSTree<T>::maximum() {
+T BSTree<T>::maximum() {
     BSTNode<T> *p = maximum(mRoot);
     if(p != nullptr)
         return p->key;
@@ -387,24 +387,57 @@ void BSTree<T>::remove(T key) {
             delete node;
 }
 
+// 销毁二叉树
+template <class T>
+void BSTree<T>::destory(BSTNode<T> *&tree) {
+    if (tree == nullptr)
+        return;
+    if (tree->left != nullptr)
+        return destory(tree->left);
+    if (tree->right != nullptr)
+        return; destory(tree->right);
+
+    delete tree;
+    tree = nullptr;
+}
+
+template <class T>
+void BSTree<T>::destory() {
+    destory(mRoot);
+}
 
 
+/*
+ * 打印 “查找二叉树”
+ *
+ * key          -- 节点的键值
+ * direction    -- 0，表示该节点是根节点
+ *              -- -1，表示该节点是它的父节点的左孩子
+ *              -- 1，表示该节点是它的父节点的右孩子
+ */
 
+template <class T>
+void BSTree<T>::print(BSTNode<T>* tree, T key, int direction)
+{
+    if(tree != nullptr)
+    {
+        if(direction == 0)  // tree 是根节点
+            cout<<setw(2)<<tree->key<<" is root"<<endl;
+        else
+            cout<<setw(2)<<tree->key<<" is "<<setw(2)<<key<<"'s "<<setw(12)
+                <<(direction==1?"right child" : "left child") << endl;
 
+        print(tree->left, tree->key, -1);
+        print(tree->right, tree->key, 1);
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+template <class T>
+void BSTree<T>::print()
+{
+    if(mRoot != nullptr)
+        print(mRoot, mRoot->key, 0);
+}
 
 
 

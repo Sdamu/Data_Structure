@@ -3,4 +3,4 @@ project(BSTree)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(BSTree main.cpp BSTree.h)
+add_executable(BSTree BSTreeTest.cpp BSTree.h)

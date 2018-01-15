@@ -6,7 +6,15 @@
 
 #IncludeRegexTransform: 
 
-F:/Learning/Data_Structure/Data_Structure/github/BSTree/main.cpp
+F:/Learning/Data_Structure/Data_Structure/github/BSTree/BSTree.h
+iomanip
+-
 iostream
 -
+
+F:/Learning/Data_Structure/Data_Structure/github/BSTree/BSTreeTest.cpp
+iostream
+-
+BSTree.h
+F:/Learning/Data_Structure/Data_Structure/github/BSTree/BSTree.h
 

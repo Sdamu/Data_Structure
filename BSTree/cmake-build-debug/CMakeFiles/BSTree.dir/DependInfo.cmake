@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "F:/Learning/Data_Structure/Data_Structure/github/BSTree/main.cpp" "F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/CMakeFiles/BSTree.dir/main.cpp.obj"
+  "F:/Learning/Data_Structure/Data_Structure/github/BSTree/BSTreeTest.cpp" "F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

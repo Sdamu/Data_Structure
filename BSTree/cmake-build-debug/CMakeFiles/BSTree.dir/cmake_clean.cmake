@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/BSTree.dir/main.cpp.obj"
+  "CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj"
   "BSTree.pdb"
   "BSTree.exe"
   "BSTree.exe.manifest"

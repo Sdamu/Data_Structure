@@ -56,38 +56,38 @@ include CMakeFiles/BSTree.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/BSTree.dir/flags.make
 
-CMakeFiles/BSTree.dir/main.cpp.obj: CMakeFiles/BSTree.dir/flags.make
-CMakeFiles/BSTree.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Learning\Data_Structure\Data_Structure\github\BSTree\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/BSTree.dir/main.cpp.obj"
-	E:\APP\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\BSTree.dir\main.cpp.obj -c F:\Learning\Data_Structure\Data_Structure\github\BSTree\main.cpp
+CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj: CMakeFiles/BSTree.dir/flags.make
+CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj: ../BSTreeTest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Learning\Data_Structure\Data_Structure\github\BSTree\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj"
+	E:\APP\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\BSTree.dir\BSTreeTest.cpp.obj -c F:\Learning\Data_Structure\Data_Structure\github\BSTree\BSTreeTest.cpp
 
-CMakeFiles/BSTree.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BSTree.dir/main.cpp.i"
-	E:\APP\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E F:\Learning\Data_Structure\Data_Structure\github\BSTree\main.cpp > CMakeFiles\BSTree.dir\main.cpp.i
+CMakeFiles/BSTree.dir/BSTreeTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BSTree.dir/BSTreeTest.cpp.i"
+	E:\APP\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E F:\Learning\Data_Structure\Data_Structure\github\BSTree\BSTreeTest.cpp > CMakeFiles\BSTree.dir\BSTreeTest.cpp.i
 
-CMakeFiles/BSTree.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BSTree.dir/main.cpp.s"
-	E:\APP\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S F:\Learning\Data_Structure\Data_Structure\github\BSTree\main.cpp -o CMakeFiles\BSTree.dir\main.cpp.s
+CMakeFiles/BSTree.dir/BSTreeTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BSTree.dir/BSTreeTest.cpp.s"
+	E:\APP\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S F:\Learning\Data_Structure\Data_Structure\github\BSTree\BSTreeTest.cpp -o CMakeFiles\BSTree.dir\BSTreeTest.cpp.s
 
-CMakeFiles/BSTree.dir/main.cpp.obj.requires:
+CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj.requires:
 
-.PHONY : CMakeFiles/BSTree.dir/main.cpp.obj.requires
+.PHONY : CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj.requires
 
-CMakeFiles/BSTree.dir/main.cpp.obj.provides: CMakeFiles/BSTree.dir/main.cpp.obj.requires
-	$(MAKE) -f CMakeFiles\BSTree.dir\build.make CMakeFiles/BSTree.dir/main.cpp.obj.provides.build
-.PHONY : CMakeFiles/BSTree.dir/main.cpp.obj.provides
+CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj.provides: CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\BSTree.dir\build.make CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj.provides.build
+.PHONY : CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj.provides
 
-CMakeFiles/BSTree.dir/main.cpp.obj.provides.build: CMakeFiles/BSTree.dir/main.cpp.obj
+CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj.provides.build: CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj
 
 
 # Object files for target BSTree
 BSTree_OBJECTS = \
-"CMakeFiles/BSTree.dir/main.cpp.obj"
+"CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj"
 
 # External object files for target BSTree
 BSTree_EXTERNAL_OBJECTS =
 
-BSTree.exe: CMakeFiles/BSTree.dir/main.cpp.obj
+BSTree.exe: CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj
 BSTree.exe: CMakeFiles/BSTree.dir/build.make
 BSTree.exe: CMakeFiles/BSTree.dir/linklibs.rsp
 BSTree.exe: CMakeFiles/BSTree.dir/objects1.rsp
@@ -100,7 +100,7 @@ CMakeFiles/BSTree.dir/build: BSTree.exe
 
 .PHONY : CMakeFiles/BSTree.dir/build
 
-CMakeFiles/BSTree.dir/requires: CMakeFiles/BSTree.dir/main.cpp.obj.requires
+CMakeFiles/BSTree.dir/requires: CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj.requires
 
 .PHONY : CMakeFiles/BSTree.dir/requires
 

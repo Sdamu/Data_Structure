@@ -85,7 +85,7 @@
 		<Unit filename="F:/Learning/Data_Structure/Data_Structure/github/BSTree/BSTree.h">
 			<Option target="BSTree"/>
 		</Unit>
-		<Unit filename="F:/Learning/Data_Structure/Data_Structure/github/BSTree/main.cpp">
+		<Unit filename="F:/Learning/Data_Structure/Data_Structure/github/BSTree/BSTreeTest.cpp">
 			<Option target="BSTree"/>
 		</Unit>
 		<Unit filename="F:/Learning/Data_Structure/Data_Structure/github/BSTree/CMakeLists.txt">
