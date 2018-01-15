@@ -1,5 +1,5 @@
 //
-// Created by Damu on 2018/1/12.
+// Created by Damu on 2018/1/15
 //
 
 /*
@@ -10,434 +10,227 @@
 #ifndef BSTREE_BSTREE_H
 #define BSTREE_BSTREE_H
 
-#include <iomanip>
 #include <iostream>
+#include <queue>
+#include <list>
+enum Boolean {FALSE, TRUE};
 
-using namespace std;
 
-template <class T>
-class BSTNode{
+
+template <class Type>
+class Element
+{
 public:
-    T key;      // 关键字（值）
-    BSTNode *left;      // 左孩子
-    BSTNode *right;     // 右孩子
-    BSTNode *parent;    // 父节点
-
-    BSTNode(T value, BSTNode *p, BSTNode *l, BSTNode *r):
-            key(value),parent(p), left(l),right(r){}
+    Type key;
+    // 可以添加更多的数据
 };
 
-template <class T>
-class BSTree{
-private:
-    BSTNode<T> *mRoot;      // 根节点
+template <class Type> class BST;    // 前置声明
 
+template <class Type>
+class BstNode   // 树节点
+{
+    // 做成友元类
+    friend class BST<Type>; // 说明 BST类 是BstNode 的友元类
 public:
-    BSTree();       // 构造函数
-    ~BSTree();      // 析构函数
+    Element<Type> data;   // 节点内的数据
+    BstNode<Type> *LeftChild;    // 左孩子
+    BstNode<Type> *RightChild;   // 右孩子
+    void display(int i);
+};
 
-    // 前序遍历二叉树
+template <class Type>
+class BST
+{
+public:
+    BST(BstNode<Type> *init = 0)
+    {
+        root = init;
+    }
+
+    Boolean Insert(const Element<Type> &x);
+    // 增加删除操作
+    // 前序遍历  preOrder
     void preOrder();
-    // 中序遍历二叉树
+    // 中序遍历  inOrder
     void inOrder();
-    // 后序遍历二叉树
+    // 后续遍历  postOrder
     void postOrder();
-
-    // (递归实现) 查找二叉树中键值为 key 的节点
-    BSTNode<T>* search(T key);
-    // (非递归实现) 查找二叉树中键值为 key 的节点
-    BSTNode<T>* iterativeSearch(T key);
-
-    // 查找最小节点，返回最小节点的键值
-    T minimum();
-    // 查找最大节点，返回最大节点的键值
-    T maximum();
-
-    // 查找节点 (x) 的后继节点。也就是查找二叉树中数据值大于该节点的最小节点
-    BSTNode<T>* successor(BSTNode<T> *x);
-    // 查找节点 (x) 的前驱节点。也就是查找二叉树中数据值小于该节点的最大节点
-    BSTNode<T>* predecessor(BSTNode<T> *x);
-
-    // 将节点插入到二叉树中
-    void insert(T key);
-
-    // 删除节点
-    void remove(T key);
-
-    // 销毁二叉树
-    void destory();
-
-    // 打印二叉树
-    void print();
-
+    // 层序遍历  levelOrder
+    void levelOrder();
+    BstNode<Type>* Search(const Element<Type> &x);
+    BstNode<Type> *Search(BstNode<Type>*, const Element<Type> &);   // 递归查找
+    BstNode<Type>* IterSearch(const Element<Type>& );   // 迭代查找
+    void display()
+    {
+        std::cout<<"\n";
+        if(root)
+            root->display(1);
+        else
+            std::cout<<"这是一颗空树\n";
+    }
 private:
-
-    // 前序遍历二叉树
-    void preOrder(BSTNode<T>* tree) const;
-    // 中序遍历二叉树
-    void inOrder(BSTNode<T>* tree) const;
-    // 后序遍历二叉树
-    void postOrder(BSTNode<T> *tree) const;
-
-    // 递归实现查找二叉树中值为 key 的节点
-    BSTNode<T>* search(BSTNode<T>* x, T key) const;
-    // 非递归实现查找二叉树中值为 key 的节点
-    BSTNode<T>* iterativeSearch(BSTNode<T>* x, T key)const;
-
-    // 查找最小节点：返回 tree 为根结点的二叉树的最小结点。
-    BSTNode<T>* minimum(BSTNode<T>* tree);
-    // 查找最大节点：返回 tree 为根节点的二叉树的最大节点
-    BSTNode<T>* maximum(BSTNode<T>* tree);
-
-    // 将节点 z 插入到二叉树中
-    void insert(BSTNode<T>* &tree, BSTNode<T> *z);
-
-    // 删除二叉树中的节点 z，并返回被删除的节点
-    BSTNode<T>* remove(BSTNode<T> * &tree, BSTNode<T> *z);
-
-    // 销毁二叉树
-    void destory(BSTNode<T>* &tree);
-
-    // 打印二叉树
-    void print(BSTNode<T>* tree, T key, int direction);
-
-
+    BstNode<Type> *root;    // 根节点
+    void preOrder(BstNode<Type>*t); // 前序遍历
+    void inOrder(BstNode<Type> *t); // 中序遍历
+    void postOrder(BstNode<Type> *t);   // 后序遍历
+    void levelOrder(BstNode<Type> *t);  // 层序遍历
 };
 
-// 构造函数
-template <class T>
-BSTree<T>::BSTree():mRoot(nullptr)
-{
 
+template <class Type>
+void BstNode<Type>::display(int i) {
+    // 显示当前节点数据 以及 左子树和右子树的全部数据
+    std::cout<<"Position: "<<i<<", data.key = "<<data.key<<"\n";
+    if(LeftChild)
+        LeftChild->display(2*i);    // 左孩子的位置
+    if(RightChild)
+        RightChild->display(2*i+1); // 右孩子的位置
 }
 
-// 析构函数
-template <class T>
-BSTree<T>::~BSTree()
-{
-    destory();
-}
-
-// 前序遍历二叉树
-
-template <class T>
-void BSTree<T>::preOrder(BSTNode<T> *tree) const
-{
-    if(tree != nullptr) {
-        cout << tree->key << " ";
-        preOrder(tree->left);
-        preOrder(tree->right);
-    }
-}
-
-template <class T>
-void BSTree<T>::preOrder()
-{
-    preOrder(mRoot);
-}
-
-
-// 中序遍历二叉树
-template <class T>
-void BSTree<T>::inOrder(BSTNode<T> *tree) const {
-    if(tree != nullptr) {
-        inOrder(tree->left);
-        cout << tree->key << " ";
-        inOrder(tree->right);
-    }
-}
-
-template <class T>
-void BSTree<T>::inOrder() {
-    inOrder(mRoot);
-}
-
-// 后序遍历二叉树
-template <class T>
-void BSTree<T>::postOrder(BSTNode<T> *tree) const {
-    if(tree != nullptr)
+template <class Type>
+Boolean BST<Type>::Insert(const Element<Type> &x) {
+    BstNode<Type> *p = root;    // 指向根节点的指针
+    BstNode<Type> *q = nullptr; // 指向节点 p 的父指针
+    // insert 之前首先要进行查找操作
+    // 要找到一个合适的位置进行插入操作
+    while(p)
     {
-        postOrder(tree->left);
-        postOrder(tree->right);
-        cout<<tree->key<<" ";
-    }
-}
-
-template <class T>
-void BSTree<T>::postOrder() {
-    postOrder(mRoot);
-}
-
-// 递归实现 查找二叉树x 中 键值为 key 的节点
-template <class T>
-BSTNode<T>* BSTree<T>::search(BSTNode<T> *x, T key) const {
-    if(x == nullptr || x->key==key)
-        return x;
-    if(x->key > key)
-        return search(x->left, key);
-    else
-        return search(x->right, key);
-}
-
-template <class T>
-BSTNode<T>* BSTree<T>::search(T key) {
-    search(mRoot, key);
-}
-
-
-// 非递归实现 查找二叉树 x 中 键值为 key 的节点
-template <class T>
-BSTNode<T>* BSTree<T>::iterativeSearch(BSTNode<T> *x, T key) const {
-    while((x != nullptr) && x->key != key)
-    {
-        if(x->key > key)
-            x = x->left;
+        q = p;
+        if(x.key == p->data.key) return FALSE;  // 发生重复，失败
+        if(x.key < p->data.key)
+        {
+            p = p->LeftChild;
+        }
         else
-            x = x->right;
+        {
+            p = p->RightChild;
+        }
     }
+    // 当循环结束后，我们就找到了一个插入位置 q
+    p = new BstNode<Type>;
+    p->LeftChild = p->RightChild = nullptr;
+    p->data=x;
+    if (!root)
+        root = p;
+    else if(x.key < q->data.key)
+        q->LeftChild = p;
+    else
+        q->RightChild = p;
+    return TRUE;    // 表示插入成功
 }
 
-template <class T>
-BSTNode<T>* BSTree<T>::iterativeSearch(T key) {
-    iterativeSearch(mRoot, key);
+// 查找
+template<class Type>
+BstNode<Type>* BST<Type>::Search(const Element<Type> &x) {
+    return Search(root, x);     // 从根节点开始找
 }
 
-// 查找最小节点 也就是查找最左下角的节点
-template <class T>
-BSTNode<T> *BSTree<T>::minimum(BSTNode<T>* tree)
-{
-    if(tree == nullptr)
+template <class Type>
+BstNode<Type>* BST<Type>::Search(BstNode<Type> *b, const Element<Type> &x) {
+    if(!b)
         return nullptr;
-    while(tree->left != nullptr)
-        tree = tree->left;
-    return tree;
+    if(x.key == b->data.key)
+        return b;
+    if(x.key < b->data.key)
+        return Search(b->LeftChild, x);
+    return Search(b->RightChild, x);
 }
 
-template <class T>
-T BSTree<T>::minimum() {
-    BSTNode<T> * p = minimum(mRoot);
-    if(p != nullptr)
-        return p->key;
-
-    return (T)nullptr;
-}
-
-// 查找最大节点 也就是查找最右下角的节点
-template <class T>
-BSTNode<T> *BSTree<T>::maximum(BSTNode<T> *tree) {
-    if(tree == nullptr)
-        return nullptr;
-    while (tree != nullptr)
-        tree = tree->right;
-    return tree;
-}
-
-template <class T>
-T BSTree<T>::maximum() {
-    BSTNode<T> *p = maximum(mRoot);
-    if(p != nullptr)
-        return p->key;
-    return(T) nullptr;
-}
-
-// 找到节点 x 的后继节点，也就是查找 二叉树中数据值大于该节点的最小节点
-template <class T>
-BSTNode<T>* BSTree<T>::successor(BSTNode<T> *x) {
-    // 如果 x 存在右孩子，则 x 的后继节点为 以右孩子为根的子树的最小节点
-    if(x->right != nullptr)
-        return minimum(x->right);
-
-    // 如果x 不存在右孩子，则 x 有以下两种可能：
-    // 01 x 是一个左孩子，则 x 的后继节点为其父节点，
-    // 02 x 是一个右孩子，则查找 x 的最低的 父节点，并且该父节点要具有左孩子，则该父节点即为所求
-
-    BSTNode<T> *y = x->parent;
-    while((y!= nullptr) && (x == y->right))
+// 迭代查找
+template <class Type>
+BstNode<Type>* BST<Type>::IterSearch(const Element<Type> &x) {
+    for(BstNode<Type>* t =root;t;)
     {
-        x =y;
-        y =y->parent;
-    }
-
-    return y;
-}
-
-// 找到节点 x 的前驱节点，也就是查找 二叉树中数据值小于该节点的最大节点
-template <class T>
-BSTNode<T>* BSTree<T>::predecessor(BSTNode<T> *x) {
-    // 如果 x 存在左孩子，则 x 的前驱节点为 以左孩子为根的子树的最大节点
-    if(x->left != nullptr)
-        return maximum(x->left);
-
-    // 如果 x 不存在右孩子，则 x 有一下两种可能
-    // 01 x 是一个右孩子，则 x 的前驱节点就是其父节点
-    // 02 x 是一个左孩子，则查找x 的最低的父节点，并且该父节点要具有右孩子，则该父节点即为所求
-
-    BSTNode<T>* y = x->parent;
-    while ((y != nullptr) && (x == y->left))
-    {
-        x = y;
-        y =y->parent;
-    }
-
-    return y;
-}
-
-
-/*
- * 将节点插入到二叉树中，其中 key 为节点键值
- * 参数说明：
- *      tree：二叉树的根节点
- *      z: 插入的节点
- */
-template <class T>
-void BSTree<T>::insert(BSTNode<T> *&tree, BSTNode<T> *z) {
-    BSTNode<T> *y = nullptr;
-    BSTNode<T> *x = tree;
-
-    // 查找 z 需要插入的位置
-    while (x != nullptr)
-    {
-        y = x;
-        if(z->key < x->key)
-            x = x->left;
+        if(x.key == t->data.key)
+            return t;
+        if (x.key < t->data.key)
+            t = t->LeftChild;
         else
-            x = x->right;
+            t = t->RightChild;
     }
-
-    z->parent = y;
-    if(y == nullptr)
-        tree = z;
-    else if (z->key < y->key)
-        y->left = z;
-    else
-        y->right = z;
+    return nullptr;
 }
 
-/*
- * 将节点插入到二叉树中 其中key 为节点键值
- *
- * 参数说明：
- *      tree: 二叉树的分界点
- *      key:  插入节点的键值
- */
-template <class T>
-void BSTree<T>::insert(T key) {
-    BSTNode<T> *z= nullptr;
-
-    // 如果新建节点失败，直接返回
-    if((z = new BSTNode<T>(key, nullptr, nullptr, nullptr)) == nullptr)
-        return ;
-
-    insert(mRoot, z);
-
-}
-
-/*
- * 删除节点(z), 并返回被删除的节点
- *
- * 参数说明：
- *      tree: 二叉树的根节点
- *      z   : 删除的节点
- */
-
-template <class T>
-BSTNode<T>* BSTree<T>::remove(BSTNode<T> *&tree, BSTNode<T> *z) {
-    BSTNode<T> *x = nullptr;
-    BSTNode<T> *y = nullptr;
-
-    if((z->left == nullptr) || z->right == nullptr)
-        y =z;
-    else
-        y = successor(z);
-
-    if(y->left != nullptr)
-        x = y->left;
-    else
-        x= y->right;
-
-    if (x != nullptr)
-        x->parent = y->parent;
-
-    if (y->parent == nullptr)
-        tree = x;
-    else if (y == y->parent->left)
-        y->parent->left = x;
-    else
-        y->parent->right = x;
-
-    if (y != z)
-        z->key = y->key;
-
-    return y;
-
-}
-
-/*
- * 删除节点 z，并返回被删除的节点
- *
- * 参数说明：
- *      tree: 二叉树的根节点
- *      z   : 删除的节点
- */
-template <class T>
-void BSTree<T>::remove(T key) {
-    BSTNode<T> *z, *node;
-    if((z = search(mRoot, key)) != nullptr)
-        if((node = remove(mRoot, z))!= nullptr)
-            delete node;
-}
-
-// 销毁二叉树
-template <class T>
-void BSTree<T>::destory(BSTNode<T> *&tree) {
-    if (tree == nullptr)
-        return;
-    if (tree->left != nullptr)
-        return destory(tree->left);
-    if (tree->right != nullptr)
-        return; destory(tree->right);
-
-    delete tree;
-    tree = nullptr;
-}
-
-template <class T>
-void BSTree<T>::destory() {
-    destory(mRoot);
-}
-
-
-/*
- * 打印 “查找二叉树”
- *
- * key          -- 节点的键值
- * direction    -- 0，表示该节点是根节点
- *              -- -1，表示该节点是它的父节点的左孩子
- *              -- 1，表示该节点是它的父节点的右孩子
- */
-
-template <class T>
-void BSTree<T>::print(BSTNode<T>* tree, T key, int direction)
-{
-    if(tree != nullptr)
+// 前序遍历
+template <class Type>
+void BST<Type>::preOrder(BstNode<Type> *t) {
+    if(t != nullptr)
     {
-        if(direction == 0)  // tree 是根节点
-            cout<<setw(2)<<tree->key<<" is root"<<endl;
-        else
-            cout<<setw(2)<<tree->key<<" is "<<setw(2)<<key<<"'s "<<setw(12)
-                <<(direction==1?"right child" : "left child") << endl;
-
-        print(tree->left, tree->key, -1);
-        print(tree->right, tree->key, 1);
+        std::cout<<t->data.key<<"\t";
+        preOrder(t->LeftChild);
+        preOrder(t->RightChild);
     }
 }
 
-template <class T>
-void BSTree<T>::print()
-{
-    if(mRoot != nullptr)
-        print(mRoot, mRoot->key, 0);
+template <class Type>
+void BST<Type>::preOrder() {
+    BstNode<Type>* t = root;
+    preOrder(t);
 }
+
+// 中序遍历
+template <class Type>
+void BST<Type>::inOrder(BstNode<Type> *t) {
+    if(t != nullptr)
+    {
+        inOrder(t->LeftChild);
+        std::cout<<t->data.key<<"\t";
+        inOrder(t->RightChild);
+    }
+}
+
+template <typename Type>
+void BST<Type>::inOrder() {
+    BstNode<Type> * t = root;
+    inOrder(t);
+}
+
+// 后序遍历
+template <typename Type>
+void BST<Type>::postOrder(BstNode<Type> *t) {
+    if(t != nullptr)
+    {
+        postOrder(t->LeftChild);
+        postOrder(t->RightChild);
+        std::cout<<t->data.key<<"\t";
+    }
+}
+
+template <typename Type>
+void BST<Type>::postOrder() {
+    BstNode<Type>* t = root;
+    postOrder(t);
+}
+
+// 层序遍历
+template <typename Type>
+void BST<Type>::levelOrder(BstNode<Type> *t) {
+    // 引入队列完成层序遍历
+    std::queue<BstNode<Type> *> q;
+    if(t != nullptr)
+    {
+        q.push(t);
+        while(!q.empty())
+        {
+            t = q.front();
+            std::cout<<t->data.key<<"\t";
+            q.pop();
+            if(t->LeftChild != nullptr)
+                q.push(t->LeftChild);
+            if(t->RightChild != nullptr)
+                q.push(t->RightChild);
+        }
+    }
+}
+
+template <typename Type>
+void BST<Type>::levelOrder() {
+    BstNode<Type> * t = root;
+    levelOrder(t);
+}
+
+
 
 
 

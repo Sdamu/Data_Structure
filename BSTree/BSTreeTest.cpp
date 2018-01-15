@@ -1,48 +1,53 @@
-ï»¿#include <iostream>
+#include <iostream>
 #include "BSTree.h"
 
 using namespace std;
 
-static int arr[]={1, 5, 4, 3, 2, 6};
-#define TBL_SIZE(a) ((sizeof(a)) / sizeof(a[0]))
-
 int main()
 {
-    int i, ilen;
-    BSTree<int>* tree = new BSTree<int>();
+    BST<int> m;
+    Element<int> a, b, c, d, e, f, g, h, i, j ,k ,l;
+    a.key = 5;
+    b.key = 3;
+    c.key = 11;
+    d.key = 3;
+    e.key = 15;
+    f.key = 2;
+    g.key = 8;
+    h.key = 22;
+    i.key = 20;
+    j.key = 9;
 
-    cout<<" == ä¾æ¬¡æ·»åŠ ï¼š";
-    ilen = TBL_SIZE(arr);
-    for (i=0;i<ilen;i++)
-    {
-        cout<<arr[i]<<" ";
-        tree->insert(arr[i]);
-    }
+    cout<<"\n"<<m.Insert(a)<<endl;    // a = 5; Ò²¾ÍÊÇ root
+    cout<<m.Insert(b)<<endl;
+    cout<<m.Insert(c)<<endl;
+    cout<<m.Insert(d)<<endl;    // d Êý¾ÝÖØ¸´£¬»á²åÈëÊ§°Ü
+    cout<<m.Insert(e)<<endl;
+    cout<<m.Insert(f)<<endl;
+    cout<<m.Insert(g)<<endl;
+    cout<<m.Insert(h)<<endl;
+    cout<<m.Insert(i)<<endl;
+    cout<<m.Insert(j)<<endl;
+    m.display();
 
-    cout<<"\n== å‰åºéåŽ†ï¼š ";
-    tree->preOrder();
+    BstNode<int>* p = m.Search(f);
+    cout<<"ÕÒµ½µÄÊÇ£º"<<p->data.key<<endl;
 
-    cout<<"\n== ä¸­åºéåŽ†ï¼š ";
-    tree->inOrder();
+    BstNode<int>* p2 = m.IterSearch(e);
+    cout<<"ÕÒµ½µÄÊÇ£º"<<p2->data.key<<endl;
 
-    cout<<"\n== åŽåºéåŽ†ï¼š ";
-    tree->postOrder();
-    cout << "== æœ€å°å€¼: " << tree->minimum() << endl;
-
-    cout << "== æœ€å¤§å€¼: " << tree->maximum() << endl;
-    cout << "== æ ‘çš„è¯¦ç»†ä¿¡æ¯: " << endl;
-    tree->print();
-
-    cout << "\n== åˆ é™¤æ ¹èŠ‚ç‚¹: " << arr[3];
-    tree->remove(arr[3]);
-
-    cout << "\n== ä¸­åºéåŽ†: ";
-    tree->inOrder();
-    cout << endl;
-
-    // é”€æ¯äºŒå‰æ ‘
-    tree->destory();
-
+    cout<<endl;
+    cout<<"Ç°Ðò±éÀú£º";
+    m.preOrder();
+    cout<<endl;
+    cout<<"ÖÐÐò±éÀú£º";
+    m.inOrder();
+    cout<<endl;
+    cout<<"ºóÐò±éÀú£º";
+    m.postOrder();
+    cout<<endl;
+    cout<<"²ãÐò±éÀú£º";
+    m.levelOrder();
+    // cout<<"Hello Test"<<endl;
     return 0;
-
 }
