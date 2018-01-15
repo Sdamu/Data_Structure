@@ -62,6 +62,10 @@ public:
     void postOrder();
     // 层序遍历  levelOrder
     void levelOrder();
+    // 查找最大值
+    Type maximum();
+    // 查找最小值
+    Type minimum();
     BstNode<Type>* Search(const Element<Type> &x);
     BstNode<Type> *Search(BstNode<Type>*, const Element<Type> &);   // 递归查找
     BstNode<Type>* IterSearch(const Element<Type>& );   // 迭代查找
@@ -79,6 +83,8 @@ private:
     void inOrder(BstNode<Type> *t); // 中序遍历
     void postOrder(BstNode<Type> *t);   // 后序遍历
     void levelOrder(BstNode<Type> *t);  // 层序遍历
+    BstNode<Type>* maximum(BstNode<Type> *tree);    // 查找最大值
+    BstNode<Type>* minimum(BstNode<Type> *tree);    // 查找最小值
 };
 
 
@@ -280,8 +286,44 @@ void BST<Type>::Merging_Remove(const Element<Type> &x) {
             Remove1(prev->LeftChild);
         else
             Remove1(prev->RightChild);
+
     }
 
+}
+
+// 查找最大值
+template <typename Type>
+BstNode<Type>*  BST<Type>::maximum(BstNode<Type> *tree) {
+    if(tree == nullptr)
+        return nullptr;
+    while(tree->RightChild != nullptr)
+        tree = tree->RightChild;
+    return tree;
+}
+
+template <typename Type>
+Type BST<Type>::maximum() {
+    BstNode<Type> *p = maximum(root);
+    if(p != nullptr)
+        return p->data.key;
+
+}
+
+// 查找最小值
+template <typename Type>
+BstNode<Type>* BST<Type>::minimum(BstNode<Type> *tree) {
+    if(tree == nullptr)
+        return nullptr;
+    while(tree->LeftChild != nullptr)
+        tree = tree->LeftChild;
+    return tree;
+}
+
+template <typename Type>
+Type BST<Type>::minimum() {
+    BstNode<Type> *p= minimum(root);
+    if(p != nullptr)
+        return p->data.key;
 }
 
 

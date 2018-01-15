@@ -49,9 +49,16 @@ int main()
     cout<<"层序遍历：";
     m.levelOrder();
     cout<<endl;
-    m.Merging_Remove(h);
-    cout<<"删除 h 结点后的层序遍历：";
-    m.levelOrder();
+    //m.Merging_Remove(c);
+    //cout<<"删除 h 结点后的层序遍历：";
+    //m.levelOrder();
     // cout<<"Hello Test"<<endl;
+
+    // 找出最大值
+    cout<<"最大值为："<<m.maximum()<<endl;
+    // 找出最小值
+    cout<<"最小值为："<<m.minimum()<<endl;
+
+
     return 0;
 }
