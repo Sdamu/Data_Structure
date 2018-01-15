@@ -12,7 +12,7 @@
 
 #include <iostream>
 #include <queue>
-#include <list>
+
 enum Boolean {FALSE, TRUE};
 
 
@@ -49,6 +49,10 @@ public:
     }
 
     Boolean Insert(const Element<Type> &x);
+    void Remove1(BstNode<Type> * &node);     // 删除结点，采用复制删除
+    void Merging_Remove(const Element<Type> &x);
+    Boolean Remove2(const Element<Type> &x);    // 删除结点，采用递归进行删除
+
     // 增加删除操作
     // 前序遍历  preOrder
     void preOrder();
@@ -230,7 +234,55 @@ void BST<Type>::levelOrder() {
     levelOrder(t);
 }
 
+// 复制删除算法
+template <typename Type>
+void BST<Type>::Remove1(BstNode<Type>* &node) {
+    BstNode<Type> *tmp = node;
+    if (node != nullptr)
+    {
+        if (node->RightChild == nullptr)  // 没有右子树
+            node = node->LeftChild;     // 指向左子女
+        else if (node -> LeftChild == nullptr)  // 没有左子女
+            node = node->RightChild;    // 指向右子女
+        else
+        {
+            tmp = node->LeftChild;  // 找到左子树的最右结点
+            while(tmp->RightChild != nullptr)
+                tmp = tmp->RightChild;
+            tmp->RightChild = node->RightChild;
 
+            tmp = node;
+            node = node->LeftChild;
+        }
+        delete tmp;
+    }
+}
+
+template <typename Type>
+void BST<Type>::Merging_Remove(const Element<Type> &x) {
+    BstNode<Type> *node = root;
+    BstNode<Type> *prev = nullptr;
+    while(node != nullptr)
+    {
+        if(node->data.key == x.key)
+            break;
+        prev = node;
+        if (node->data.key < x.key)
+            node = node->RightChild;
+        else
+            node = node->LeftChild;
+    }
+    if (node != nullptr && node->data.key == x.key)
+    {
+        if(node == root)
+            Remove1(root);
+        else if(prev->LeftChild == node)
+            Remove1(prev->LeftChild);
+        else
+            Remove1(prev->RightChild);
+    }
+
+}
 
 
 

@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "F:/Learning/Data_Structure/Data_Structure/github/BSTree/BSTreeTest.cpp" "F:/Learning/Data_Structure/Data_Structure/github/BSTree/cmake-build-debug/CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj"
+  "/Users/damu/Documents/GitHub/Data_Structure/BSTree/BSTreeTest.cpp" "/Users/damu/Documents/GitHub/Data_Structure/BSTree/cmake-build-debug/CMakeFiles/BSTree.dir/BSTreeTest.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

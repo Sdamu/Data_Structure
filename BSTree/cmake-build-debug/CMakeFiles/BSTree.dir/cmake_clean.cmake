@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/BSTree.dir/BSTreeTest.cpp.obj"
+  "CMakeFiles/BSTree.dir/BSTreeTest.cpp.o"
   "BSTree.pdb"
-  "BSTree.exe"
-  "BSTree.exe.manifest"
-  "libBSTree.dll.a"
+  "BSTree"
 )
 
 # Per-language clean rules from dependency scanning.

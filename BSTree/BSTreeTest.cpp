@@ -48,6 +48,10 @@ int main()
     cout<<endl;
     cout<<"²ãĞò±éÀú£º";
     m.levelOrder();
+    cout<<endl;
+    m.Merging_Remove(h);
+    cout<<"É¾³ı h ½áµãºóµÄ²ãĞò±éÀú£º";
+    m.levelOrder();
     // cout<<"Hello Test"<<endl;
     return 0;
 }

@@ -1,3 +1,1 @@
-E:\APP\JetBrains\CLion\bin\cmake\bin\cmake.exe -E remove -f CMakeFiles\BSTree.dir/objects.a
-E:\APP\MinGW\bin\ar.exe cr CMakeFiles\BSTree.dir/objects.a @CMakeFiles\BSTree.dir\objects1.rsp
-E:\APP\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\BSTree.dir/objects.a -Wl,--no-whole-archive  -o BSTree.exe -Wl,--out-implib,libBSTree.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\BSTree.dir\linklibs.rsp
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/BSTree.dir/BSTreeTest.cpp.o  -o BSTree 

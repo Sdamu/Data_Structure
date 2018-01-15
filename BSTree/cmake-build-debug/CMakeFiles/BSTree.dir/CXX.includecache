@@ -6,17 +6,15 @@
 
 #IncludeRegexTransform: 
 
-F:/Learning/Data_Structure/Data_Structure/github/BSTree/BSTree.h
+/Users/damu/Documents/GitHub/Data_Structure/BSTree/BSTree.h
 iostream
 -
 queue
 -
-list
--
 
-F:/Learning/Data_Structure/Data_Structure/github/BSTree/BSTreeTest.cpp
+/Users/damu/Documents/GitHub/Data_Structure/BSTree/BSTreeTest.cpp
 iostream
 -
 BSTree.h
-F:/Learning/Data_Structure/Data_Structure/github/BSTree/BSTree.h
+/Users/damu/Documents/GitHub/Data_Structure/BSTree/BSTree.h
 
