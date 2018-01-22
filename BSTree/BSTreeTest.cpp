@@ -52,8 +52,12 @@ int main()
     //m.Merging_Remove(c);
     //cout<<"删除 h 结点后的层序遍历：";
     //m.levelOrder();
-    // cout<<"Hello Test"<<endl;
+    //cout<<"Hello Test"<<endl;
 
+    m.Remove2(c);
+    cout<<"删除 h 节点后的层序遍历：";
+    m.levelOrder();
+    cout<<endl;
     // 找出最大值
     cout<<"最大值为："<<m.maximum()<<endl;
     // 找出最小值

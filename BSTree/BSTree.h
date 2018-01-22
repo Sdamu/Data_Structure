@@ -46,7 +46,8 @@ public:
     Boolean Insert(const Element<Type> &x);
     void Remove1(BstNode<Type> * &node);     // 删除结点，采用复制删除
     void Merging_Remove(const Element<Type> &x);
-    Boolean Remove2(const Element<Type> &x);    // 删除结点，采用递归进行删除
+    void Remove2(const Element<Type> &x);       // 采用递归的思想进行内部节点的删除
+       // 删除结点，采用递归进行删除
 
     // 增加删除操作
     // 前序遍历  preOrder
@@ -80,6 +81,7 @@ private:
     void levelOrder(BstNode<Type> *t);  // 层序遍历
     BstNode<Type>* maximum(BstNode<Type> *tree);    // 查找最大值
     BstNode<Type>* minimum(BstNode<Type> *tree);    // 查找最小值
+    void Remove2(const Element<Type> &x, BstNode<Type> * &t);
 };
 
 
@@ -322,6 +324,41 @@ Type BST<Type>::minimum() {
 }
 
 
+/*
+ * 从一颗子树删除一项的内部方法
+ * 参数 x 是要被删除的项
+ * 参数 t 是该子树的根
+ * 置该子树的新的根
+ */
+template <typename Type>
+void BST<Type>::Remove2(const Element<Type> &x, BstNode<Type> *&t) {
+    if(t == nullptr)
+        return;         // 没有找到要删除的项，什么也不返回
+    if(x.key < t->data.key)
+        Remove2(x,t->LeftChild);
+    else if(x.key > t->data.key)
+        Remove2(x, t->RightChild);
+    else if (t->LeftChild != nullptr && t->RightChild != nullptr)   // 有两个子女
+    {
+        t->data.key = minimum(t->RightChild)->data.key;
+        Remove2(t->data, t->RightChild);
+    }
+    else
+    {
+        BstNode<Type> * oldNode = t;
+        t = (t->LeftChild != nullptr) ? t->LeftChild : t->RightChild;
+        delete oldNode;
+    }
+}
+
+template <typename Type>
+void BST<Type>::Remove2(const Element<Type> &x) {
+    BstNode<Type> *t = root;
+    if(t != nullptr)
+        Remove2(x, t);
+    else
+        return ;
+}
 
 
 #endif //BSTREE_BSTREE_H
