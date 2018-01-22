@@ -1,11 +1,6 @@
 //
-// Created by Damu on 2018/1/15
+// Created by Damu on 2018/1/22.
 //
-
-/*
- * C++ è¯­è¨€å®ç°ï¼šäºŒå‰æŸ¥æ‰¾æ ‘
- */
-
 
 #ifndef BSTREE_BSTREE_H
 #define BSTREE_BSTREE_H
@@ -22,20 +17,20 @@ class Element
 {
 public:
     Type key;
-    // å¯ä»¥æ·»åŠ æ›´å¤šçš„æ•°æ®
+    // ¿ÉÒÔÌí¼Ó¸ü¶àµÄÊı¾İ
 };
 
-template <class Type> class BST;    // å‰ç½®å£°æ˜
+template <class Type> class BST;    // Ç°ÖÃÉùÃ÷
 
 template <class Type>
-class BstNode   // æ ‘èŠ‚ç‚¹
+class BstNode   // Ê÷½Úµã
 {
-    // åšæˆå‹å…ƒç±»
-    friend class BST<Type>; // è¯´æ˜ BSTç±» æ˜¯BstNode çš„å‹å…ƒç±»
+    // ×ö³ÉÓÑÔªÀà
+    friend class BST<Type>; // ËµÃ÷ BSTÀà ÊÇBstNode µÄÓÑÔªÀà
 public:
-    Element<Type> data;   // èŠ‚ç‚¹å†…çš„æ•°æ®
-    BstNode<Type> *LeftChild;    // å·¦å­©å­
-    BstNode<Type> *RightChild;   // å³å­©å­
+    Element<Type> data;   // ½ÚµãÄÚµÄÊı¾İ
+    BstNode<Type> *LeftChild;    // ×óº¢×Ó
+    BstNode<Type> *RightChild;   // ÓÒº¢×Ó
     void display(int i);
 };
 
@@ -49,65 +44,65 @@ public:
     }
 
     Boolean Insert(const Element<Type> &x);
-    void Remove1(BstNode<Type> * &node);     // åˆ é™¤ç»“ç‚¹ï¼Œé‡‡ç”¨å¤åˆ¶åˆ é™¤
+    void Remove1(BstNode<Type> * &node);     // É¾³ı½áµã£¬²ÉÓÃ¸´ÖÆÉ¾³ı
     void Merging_Remove(const Element<Type> &x);
-    Boolean Remove2(const Element<Type> &x);    // åˆ é™¤ç»“ç‚¹ï¼Œé‡‡ç”¨é€’å½’è¿›è¡Œåˆ é™¤
+    Boolean Remove2(const Element<Type> &x);    // É¾³ı½áµã£¬²ÉÓÃµİ¹é½øĞĞÉ¾³ı
 
-    // å¢åŠ åˆ é™¤æ“ä½œ
-    // å‰åºéå†  preOrder
+    // Ôö¼ÓÉ¾³ı²Ù×÷
+    // Ç°Ğò±éÀú  preOrder
     void preOrder();
-    // ä¸­åºéå†  inOrder
+    // ÖĞĞò±éÀú  inOrder
     void inOrder();
-    // åç»­éå†  postOrder
+    // ºóĞø±éÀú  postOrder
     void postOrder();
-    // å±‚åºéå†  levelOrder
+    // ²ãĞò±éÀú  levelOrder
     void levelOrder();
-    // æŸ¥æ‰¾æœ€å¤§å€¼
+    // ²éÕÒ×î´óÖµ
     Type maximum();
-    // æŸ¥æ‰¾æœ€å°å€¼
+    // ²éÕÒ×îĞ¡Öµ
     Type minimum();
     BstNode<Type>* Search(const Element<Type> &x);
-    BstNode<Type> *Search(BstNode<Type>*, const Element<Type> &);   // é€’å½’æŸ¥æ‰¾
-    BstNode<Type>* IterSearch(const Element<Type>& );   // è¿­ä»£æŸ¥æ‰¾
+    BstNode<Type> *Search(BstNode<Type>*, const Element<Type> &);   // µİ¹é²éÕÒ
+    BstNode<Type>* IterSearch(const Element<Type>& );   // µü´ú²éÕÒ
     void display()
     {
         std::cout<<"\n";
         if(root)
             root->display(1);
         else
-            std::cout<<"è¿™æ˜¯ä¸€é¢—ç©ºæ ‘\n";
+            std::cout<<"ÕâÊÇÒ»¿Å¿ÕÊ÷\n";
     }
 private:
-    BstNode<Type> *root;    // æ ¹èŠ‚ç‚¹
-    void preOrder(BstNode<Type>*t); // å‰åºéå†
-    void inOrder(BstNode<Type> *t); // ä¸­åºéå†
-    void postOrder(BstNode<Type> *t);   // ååºéå†
-    void levelOrder(BstNode<Type> *t);  // å±‚åºéå†
-    BstNode<Type>* maximum(BstNode<Type> *tree);    // æŸ¥æ‰¾æœ€å¤§å€¼
-    BstNode<Type>* minimum(BstNode<Type> *tree);    // æŸ¥æ‰¾æœ€å°å€¼
+    BstNode<Type> *root;    // ¸ù½Úµã
+    void preOrder(BstNode<Type>*t); // Ç°Ğò±éÀú
+    void inOrder(BstNode<Type> *t); // ÖĞĞò±éÀú
+    void postOrder(BstNode<Type> *t);   // ºóĞò±éÀú
+    void levelOrder(BstNode<Type> *t);  // ²ãĞò±éÀú
+    BstNode<Type>* maximum(BstNode<Type> *tree);    // ²éÕÒ×î´óÖµ
+    BstNode<Type>* minimum(BstNode<Type> *tree);    // ²éÕÒ×îĞ¡Öµ
 };
 
 
 template <class Type>
 void BstNode<Type>::display(int i) {
-    // æ˜¾ç¤ºå½“å‰èŠ‚ç‚¹æ•°æ® ä»¥åŠ å·¦å­æ ‘å’Œå³å­æ ‘çš„å…¨éƒ¨æ•°æ®
+    // ÏÔÊ¾µ±Ç°½ÚµãÊı¾İ ÒÔ¼° ×ó×ÓÊ÷ºÍÓÒ×ÓÊ÷µÄÈ«²¿Êı¾İ
     std::cout<<"Position: "<<i<<", data.key = "<<data.key<<"\n";
     if(LeftChild)
-        LeftChild->display(2*i);    // å·¦å­©å­çš„ä½ç½®
+        LeftChild->display(2*i);    // ×óº¢×ÓµÄÎ»ÖÃ
     if(RightChild)
-        RightChild->display(2*i+1); // å³å­©å­çš„ä½ç½®
+        RightChild->display(2*i+1); // ÓÒº¢×ÓµÄÎ»ÖÃ
 }
 
 template <class Type>
 Boolean BST<Type>::Insert(const Element<Type> &x) {
-    BstNode<Type> *p = root;    // æŒ‡å‘æ ¹èŠ‚ç‚¹çš„æŒ‡é’ˆ
-    BstNode<Type> *q = nullptr; // æŒ‡å‘èŠ‚ç‚¹ p çš„çˆ¶æŒ‡é’ˆ
-    // insert ä¹‹å‰é¦–å…ˆè¦è¿›è¡ŒæŸ¥æ‰¾æ“ä½œ
-    // è¦æ‰¾åˆ°ä¸€ä¸ªåˆé€‚çš„ä½ç½®è¿›è¡Œæ’å…¥æ“ä½œ
+    BstNode<Type> *p = root;    // Ö¸Ïò¸ù½ÚµãµÄÖ¸Õë
+    BstNode<Type> *q = nullptr; // Ö¸Ïò½Úµã p µÄ¸¸Ö¸Õë
+    // insert Ö®Ç°Ê×ÏÈÒª½øĞĞ²éÕÒ²Ù×÷
+    // ÒªÕÒµ½Ò»¸öºÏÊÊµÄÎ»ÖÃ½øĞĞ²åÈë²Ù×÷
     while(p)
     {
         q = p;
-        if(x.key == p->data.key) return FALSE;  // å‘ç”Ÿé‡å¤ï¼Œå¤±è´¥
+        if(x.key == p->data.key) return FALSE;  // ·¢ÉúÖØ¸´£¬Ê§°Ü
         if(x.key < p->data.key)
         {
             p = p->LeftChild;
@@ -117,7 +112,7 @@ Boolean BST<Type>::Insert(const Element<Type> &x) {
             p = p->RightChild;
         }
     }
-    // å½“å¾ªç¯ç»“æŸåï¼Œæˆ‘ä»¬å°±æ‰¾åˆ°äº†ä¸€ä¸ªæ’å…¥ä½ç½® q
+    // µ±Ñ­»·½áÊøºó£¬ÎÒÃÇ¾ÍÕÒµ½ÁËÒ»¸ö²åÈëÎ»ÖÃ q
     p = new BstNode<Type>;
     p->LeftChild = p->RightChild = nullptr;
     p->data=x;
@@ -127,13 +122,13 @@ Boolean BST<Type>::Insert(const Element<Type> &x) {
         q->LeftChild = p;
     else
         q->RightChild = p;
-    return TRUE;    // è¡¨ç¤ºæ’å…¥æˆåŠŸ
+    return TRUE;    // ±íÊ¾²åÈë³É¹¦
 }
 
-// æŸ¥æ‰¾
+// ²éÕÒ
 template<class Type>
 BstNode<Type>* BST<Type>::Search(const Element<Type> &x) {
-    return Search(root, x);     // ä»æ ¹èŠ‚ç‚¹å¼€å§‹æ‰¾
+    return Search(root, x);     // ´Ó¸ù½Úµã¿ªÊ¼ÕÒ
 }
 
 template <class Type>
@@ -147,7 +142,7 @@ BstNode<Type>* BST<Type>::Search(BstNode<Type> *b, const Element<Type> &x) {
     return Search(b->RightChild, x);
 }
 
-// è¿­ä»£æŸ¥æ‰¾
+// µü´ú²éÕÒ
 template <class Type>
 BstNode<Type>* BST<Type>::IterSearch(const Element<Type> &x) {
     for(BstNode<Type>* t =root;t;)
@@ -162,7 +157,7 @@ BstNode<Type>* BST<Type>::IterSearch(const Element<Type> &x) {
     return nullptr;
 }
 
-// å‰åºéå†
+// Ç°Ğò±éÀú
 template <class Type>
 void BST<Type>::preOrder(BstNode<Type> *t) {
     if(t != nullptr)
@@ -179,7 +174,7 @@ void BST<Type>::preOrder() {
     preOrder(t);
 }
 
-// ä¸­åºéå†
+// ÖĞĞò±éÀú
 template <class Type>
 void BST<Type>::inOrder(BstNode<Type> *t) {
     if(t != nullptr)
@@ -196,7 +191,7 @@ void BST<Type>::inOrder() {
     inOrder(t);
 }
 
-// ååºéå†
+// ºóĞò±éÀú
 template <typename Type>
 void BST<Type>::postOrder(BstNode<Type> *t) {
     if(t != nullptr)
@@ -213,10 +208,10 @@ void BST<Type>::postOrder() {
     postOrder(t);
 }
 
-// å±‚åºéå†
+// ²ãĞò±éÀú
 template <typename Type>
 void BST<Type>::levelOrder(BstNode<Type> *t) {
-    // å¼•å…¥é˜Ÿåˆ—å®Œæˆå±‚åºéå†
+    // ÒıÈë¶ÓÁĞÍê³É²ãĞò±éÀú
     std::queue<BstNode<Type> *> q;
     if(t != nullptr)
     {
@@ -240,19 +235,19 @@ void BST<Type>::levelOrder() {
     levelOrder(t);
 }
 
-// å¤åˆ¶åˆ é™¤ç®—æ³•
+// ¸´ÖÆÉ¾³ıËã·¨
 template <typename Type>
 void BST<Type>::Remove1(BstNode<Type>* &node) {
     BstNode<Type> *tmp = node;
     if (node != nullptr)
     {
-        if (node->RightChild == nullptr)  // æ²¡æœ‰å³å­æ ‘
-            node = node->LeftChild;     // æŒ‡å‘å·¦å­å¥³
-        else if (node -> LeftChild == nullptr)  // æ²¡æœ‰å·¦å­å¥³
-            node = node->RightChild;    // æŒ‡å‘å³å­å¥³
+        if (node->RightChild == nullptr)  // Ã»ÓĞÓÒ×ÓÊ÷
+            node = node->LeftChild;     // Ö¸Ïò×ó×ÓÅ®
+        else if (node -> LeftChild == nullptr)  // Ã»ÓĞ×ó×ÓÅ®
+            node = node->RightChild;    // Ö¸ÏòÓÒ×ÓÅ®
         else
         {
-            tmp = node->LeftChild;  // æ‰¾åˆ°å·¦å­æ ‘çš„æœ€å³ç»“ç‚¹
+            tmp = node->LeftChild;  // ÕÒµ½×ó×ÓÊ÷µÄ×îÓÒ½áµã
             while(tmp->RightChild != nullptr)
                 tmp = tmp->RightChild;
             tmp->RightChild = node->RightChild;
@@ -291,7 +286,7 @@ void BST<Type>::Merging_Remove(const Element<Type> &x) {
 
 }
 
-// æŸ¥æ‰¾æœ€å¤§å€¼
+// ²éÕÒ×î´óÖµ
 template <typename Type>
 BstNode<Type>*  BST<Type>::maximum(BstNode<Type> *tree) {
     if(tree == nullptr)
@@ -309,7 +304,7 @@ Type BST<Type>::maximum() {
 
 }
 
-// æŸ¥æ‰¾æœ€å°å€¼
+// ²éÕÒ×îĞ¡Öµ
 template <typename Type>
 BstNode<Type>* BST<Type>::minimum(BstNode<Type> *tree) {
     if(tree == nullptr)
