@@ -103,7 +103,7 @@ private:
     // 将节点 z 插入到 AVL 树中
     AVL_Tree_Node<T>* insert(AVL_Tree_Node<T>* &tree, T key);
     // 删除 AVL 树 tree 中的节点 z，并返回删除的节点
-    AVL_Tree_Node<T>* remove(AVL_Tree_Node<T>* &tree, T key, AVL_Tree_Node<T> *z);
+    AVL_Tree_Node<T>* remove(AVL_Tree_Node<T>* &tree, AVL_Tree_Node<T> *z);
 
     // 销毁 AVL 树
     void destory(AVL_Tree_Node<T>* &tree);
@@ -292,157 +292,248 @@ T AVL_Tree<T>::maximum() {
 /*
  * LL: 左单旋转
  *
+ * 只需要进行一次旋转即可调整为平衡状态
+ *
  * 返回值：旋转后的根节点
+ *
  */
 template <typename T>
 AVL_Tree_Node<T>* AVL_Tree<T>::leftLeftRotation(AVL_Tree_Node<T> *k2) {
-    AVL_Tree_Node<T> *k1;
+    AVL_Tree_Node<T>* k1;
 
     k1 = k2->left;
     k2->left = k1->right;
     k1->right = k2;
 
-    k2->height = max( height(k2->left), height(k2->right)) + 1;
-    k1->height = max( height(k1->left), height(k1->right)) + 1;
+    k2->height = max(height(k2->left), height(k2->right)) + 1;
+    k1->height = max(height(k1->left), height(k1->right)) + 1;
 
     return k1;
+
 }
 
 /*
  * RR: 右单旋转
  *
+ * 只需要进行一次旋转即可调整为平衡状态
+ *
  * 返回值：旋转后的根节点
+ *
  */
 template <typename T>
 AVL_Tree_Node<T>* AVL_Tree<T>::rightRightRotation(AVL_Tree_Node<T> *k1) {
-    AVL_Tree_Node<T> *k2;
+    AVL_Tree_Node<T> * k2;
 
     k2 = k1->right;
     k1->right = k2->left;
     k2->left = k1;
 
-    k1->height = max(height(k1->left), height(k1->right)) +1;
-    k2->height = max(height(k2->left), height(k2->right)) +1;
+    k1->height = max(height(k1->left), height(k1->right)) + 1;
+    k2->height = max(height(k2->left), height(k2->right)) + 1;
 
     return k2;
+}
+
+/*
+ * LR: 左双旋转
+ *
+ * 需要进行两次旋转方可调整为平衡状态
+ * 首先要经过一次 RR 旋转，在经过一次 LL 旋转
+ *
+ * 返回值：旋转后的根节点
+ *
+ */
+template <typename T>
+AVL_Tree_Node<T>* AVL_Tree<T>::leftRightRotation(AVL_Tree_Node<T> *k3) {
+    k3->left = rightRightRotation(k3->left);
+
+    return leftLeftRotation(k3);
+}
+
+/*
+ * RL：右双旋转
+ *
+ * 需要进行两次旋转方可调整为平衡状态
+ * 首先要经过一次 LL 旋转，再经过一次 RR 旋转
+ *
+ * 返回值：旋转后的根节点
+ */
+template <typename T>
+AVL_Tree_Node<T>* AVL_Tree<T>::rightLeftRotation(AVL_Tree_Node<T> *k1) {
+    k1->right = leftLeftRotation(k1->right);
+
+    return rightRightRotation(k1);
+}
+
+/*
+ * 将节点插入到已经平衡的 AVL 树中，并返回根节点
+ *
+ * 参数说明：
+ *      tree：AVL 树的根节点
+ *      key：插入的节点的键值
+ *
+ * 返回值：
+ *      根节点
+ */
+
+template <typename T>
+AVL_Tree_Node<T>* AVL_Tree<T>::insert(AVL_Tree_Node<T>* &tree, T key) {
+    if(tree == nullptr)
+    {
+        // 新建节点
+        tree = new AVL_Tree_Node<T>(key, nullptr, nullptr);
+//      if(tree == nullptr)
+//      {
+//          std::cout<<"ERROR: create avltree node failed!" <<std::endl;
+//          return nullptr;
+//      }
+    }
+
+    else if(key < tree->key)    // 小于键值，则应该插入到 tree 的左子树中
+    {
+        tree->left = insert(tree->left, key);       // 利用递归进行插入操作
+        // 插入节点后，如果 AVL 树失去平衡，则进行相应的调节
+        if(height(tree ->left) - height(tree->right) == 2)
+        {
+            if(key < tree->left->key)
+                tree = leftLeftRotation(tree);
+            else
+                tree = leftRightRotation(tree);
+        }
+    }
+
+    else if (key > tree->key)   // 大于键值，则应该插入到 tree 的右子树中
+    {
+        tree->right = insert(tree->right, key);
+        // 插入节点后，如果 AVL 树失去平衡，则惊醒相应的调节
+        if(height(tree->right) - height(tree->left))
+        {
+            if(key > tree->right->key)
+                tree = rightRightRotation(tree);
+            else
+                tree = rightLeftRotation(tree);
+        }
+    }
+
+    else    // key == tree->key
+    {
+        std::cout<<"添加失败，不允许添加相同的节点\n";
+    }
+
+    tree->height = max(height(tree->left), height(tree->right));
+
+    return tree;
 
 }
 
+template <typename T>
+void AVL_Tree<T>::insert(T key) {
+    insert(root, key);
+}
+
+/*
+ * 删除结点 z，并返回根节点
+ *
+ * 参数说明：
+ *      tree：AVL 树的根节点
+ *      z：要删除的节点
+ *
+ * 返回值：
+ *      根节点
+ */
+template <typename T>
+AVL_Tree_Node<T>* AVL_Tree<T>::remove(AVL_Tree_Node<T> *&tree, AVL_Tree_Node<T> *z) {
+    // 根为空 或者 没有要删除的节点，直接返回 nullptr
+    if(tree == nullptr || z == nullptr)
+        return nullptr;
+
+    // 待删除的节点在 tree 的左子树中
+    if(z->key < tree->key)
+    {
+        tree->left = remove(tree->left, z);     // 使用递归进行删除
+        // 删除节点后 如果 AVL 树失去平衡，则进行相应的调整
+        if(height(tree->right) - height(tree->left) == 2)
+        {
+            AVL_Tree_Node<T> *r = tree->right;
+            if(height(r->left) > height(r->right))
+                tree = rightLeftRotation(tree);
+            else
+                tree = rightRightRotation(tree);
+        }
+    }
+
+    // 待删除的节点在 tree 的右子树中
+    if(z->key > tree->key)
+    {
+        tree->right = remove(tree->right, z);   // 使用地柜进行删除
+        // 删除节点后 如果 AVL 树失去平衡，则进行相应的调整
+        if(height(tree->left) - height(tree->right) == 2)
+        {
+            AVL_Tree_Node<T>* l = tree->left;
+            if(height(l->left) > height(l->right))
+                tree = leftRightRotation(tree);
+            else
+                tree = rightLeftRotation(tree);
+        }
+    }
+
+    else    // tree 是对应要删除的节点
+    {
+        // tree 的左右孩子都非空
+        if ((tree->left != nullptr) && (tree->right != nullptr))
+        {
+            if(height(tree->left) > height(tree->right))
+            {
+                /*
+                 * 如果tree 的左子树比右子树高
+                 * 则有：
+                 *      ① 找出 tree 的左子树中的最大节点
+                 *      ② 将该最大节点的值赋值给 tree
+                 *      ③ 删除该最大节点
+                 *
+                 * 这种方法类似于用 tree 的左子树中的最大节点做 tree 节点的替身
+                 * 采用这种方式的好处是：删除 tree 左子树的最大节点后，AVL 树仍然是平衡的
+                 */
+                AVL_Tree_Node<T> *max = maximum(tree->left);
+                tree->key = max->key;
+                tree->left = remove(tree->left, max);   // 继续进行递归删除操作
+            }
+            else
+            {
+                /*
+                 * 如果 tree 的左子树不比右子树高（也就是相等或者 右子树比左子树高）
+                 * 则有：
+                 *      ① 找出 tree 右子树中的最小节点
+                 *      ② 将该最小节点的值 赋值 给 tree
+                 *      ③ 删除该最小节点
+                 *
+                 * 这种方法类似于用 tree 的右子树中的最小节点做 tree 节点的替身
+                 * 采用这种方式的好处是：删除 tree 的右子树中最小节点后，AVL 树仍然是平衡的
+                 */
+                AVL_Tree_Node<T>* min = minimum(tree->right);
+                tree->key = min->key;
+                tree->right = remove(tree->right, min);     // 继续进行递归删除操作
+            }
+        }
+
+        else
+        {
+            AVL_Tree_Node<T> *tmp = tree;
+            tree = (tree->left != nullptr)? tree->left:tree->right;
+            delete tmp;
+        }
+    }
+
+    return tree;
+}
+
+template <typename T>
+void AVL_Tree<T>::remove(T key) {
+    AVL_Tree_Node<T> *z;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    if((z = search(root, key)) != nullptr)
+        root = remove(root, z);
+}
 
 
 #endif //AVL_TREE_AVL_TREE_H
