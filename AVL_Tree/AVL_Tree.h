@@ -35,7 +35,7 @@ public:
 
     // 获取树的高度
     int height();
-    // 获取树的高度
+    // 比较两个数值的大小
     int max(int a, int b);
 
     // 前序遍历 AVL 树
@@ -145,9 +145,148 @@ int AVL_Tree<T>::height() {
     return height(root);
 }
 
+/*
+ * 比较两个值的大小
+ */
+template <typename T>
+int AVL_Tree<T>::max(int a, int b) {
+    return a>b ? a:b;
+}
 
+/*
+ * 前序遍历 AVL 树
+ */
+template <typename T>
+void AVL_Tree<T>::preOrder(AVL_Tree_Node<T> *tree) const {
+    if (tree != nullptr)
+    {
+        std::cout<<tree->key<<"\t";
+        preOrder(tree->left);
+        preOrder(tree->right);
+    }
+}
 
+template <typename T>
+void AVL_Tree<T>::preOrder() {
+    preOrder(root);
+}
 
+/*
+ * 中序遍历 AVL 树
+ */
+template <typename T>
+void AVL_Tree<T>::inOrder(AVL_Tree_Node<T> *tree) const {
+    if(tree != nullptr)
+    {
+        inOrder(tree->left);
+        std::cout<<tree->key<<"\t";
+        inOrder(tree->right);
+    }
+}
+
+template <typename T>
+void AVL_Tree<T>::inOrder() {
+    inOrder(root);
+}
+
+/*
+ * 后序遍历 AVL 树
+ */
+template <typename T>
+void AVL_Tree<T>::postOrder(AVL_Tree_Node<T> *tree) const {
+    if(tree != nullptr)
+    {
+        postOrder(tree->left);
+        postOrder(tree->left);
+        std::cout<<tree->key<<"\t";
+    }
+}
+
+template <typename T>
+void AVL_Tree<T>::postOrder() {
+    postOrder(root);
+}
+
+/*
+ * 递归实现 查找 AVL 树中键值为 key 的节点
+ */
+template <typename T>
+AVL_Tree_Node<T>* AVL_Tree<T>::search(AVL_Tree_Node<T> *x, T key) const {
+    if(x == nullptr || x->key == key)
+        return x;
+    if (key < x->key)
+        return search(x->left, key);
+    else
+        return search(x->right, key);
+}
+
+template <typename T>
+AVL_Tree_Node<T>* AVL_Tree<T>::search(T key) {
+    return search(root, key);
+}
+
+/*
+ * 非递归实现 查找 AVL 树中键值为 key 的节点
+ */
+template <typename T>
+AVL_Tree_Node<T>* AVL_Tree<T>::iterativeSearch(AVL_Tree_Node<T> *x, T key) const {
+    while((x != nullptr) && (x->key != key))
+    {
+        if (key < x->key)
+            x = x->left;
+        else
+            x = x->right;
+    }
+
+    return x;
+}
+
+template <typename T>
+AVL_Tree_Node<T>* AVL_Tree<T>::iterativeSearch(T key) {
+    return iterativeSearch(root, key);
+}
+
+/*
+ * 查找最小节点：返回 tree 为根节点的 AVL 树的最小节点
+ */
+template <typename T>
+AVL_Tree_Node<T>* AVL_Tree<T>::minimum(AVL_Tree_Node<T> *tree) {
+    if(tree == nullptr)
+        return nullptr;
+
+    while(tree->left != nullptr)
+        tree = tree->left;
+
+    return tree;
+}
+
+template <typename T>
+T AVL_Tree<T>::minimum() {
+    AVL_Tree_Node<T> *p = minimum(root);
+    if(p != nullptr)
+        return p->key;
+    return T(nullptr);
+}
+
+/*
+ * 查找最大节点：返回 tree 为根节点的 AVL 树的最大节点
+ */
+template <typename T>
+AVL_Tree_Node<T>* AVL_Tree<T>::maximum(AVL_Tree_Node<T> *tree) {
+    if (tree == nullptr)
+        return nullptr;
+    while(tree->right != nullptr)
+        tree = tree->right;
+
+    return tree;
+}
+template <typename T>
+T AVL_Tree<T>::maximum() {
+    AVL_Tree_Node<T> *p = minimum(root);
+    if(p != nullptr)
+        return p->key;
+    return T(nullptr);
+}
 
 
 
