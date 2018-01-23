@@ -289,8 +289,44 @@ T AVL_Tree<T>::maximum() {
 }
 
 
+/*
+ * LL: 左单旋转
+ *
+ * 返回值：旋转后的根节点
+ */
+template <typename T>
+AVL_Tree_Node<T>* AVL_Tree<T>::leftLeftRotation(AVL_Tree_Node<T> *k2) {
+    AVL_Tree_Node<T> *k1;
 
+    k1 = k2->left;
+    k2->left = k1->right;
+    k1->right = k2;
 
+    k2->height = max( height(k2->left), height(k2->right)) + 1;
+    k1->height = max( height(k1->left), height(k1->right)) + 1;
+
+    return k1;
+}
+
+/*
+ * RR: 右单旋转
+ *
+ * 返回值：旋转后的根节点
+ */
+template <typename T>
+AVL_Tree_Node<T>* AVL_Tree<T>::rightRightRotation(AVL_Tree_Node<T> *k1) {
+    AVL_Tree_Node<T> *k2;
+
+    k2 = k1->right;
+    k1->right = k2->left;
+    k2->left = k1;
+
+    k1->height = max(height(k1->left), height(k1->right)) +1;
+    k2->height = max(height(k2->left), height(k2->right)) +1;
+
+    return k2;
+
+}
 
 
 
